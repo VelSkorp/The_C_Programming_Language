@@ -54,7 +54,7 @@ main()
 			{
 				printf("#");
 			}
-			else if(frequency[j] != 0)
+			else if (frequency[j] != 0)
 			{
 				printf(".");
 			}
