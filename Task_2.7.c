@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <limits.h>
 
 unsigned invert(unsigned x, int p, int n);
 
