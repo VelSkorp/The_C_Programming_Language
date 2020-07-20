@@ -29,7 +29,7 @@ main()
 
 void itoa(int n, char s[], int width)
 {
-	int i, j, sign;
+	int i, sign;
 
 	if ((sign = n) < 0)
 	{
