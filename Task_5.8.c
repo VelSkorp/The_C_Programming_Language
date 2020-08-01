@@ -22,15 +22,14 @@ main(void)
 
 int day_of_year(int year, int month, int day)
 {
-	if (year < 0 || month < 0 || month > 12 || day < 0 || day > 31)
-	{
-		printf("data error\n");
-		return -1;
-	}
-
 	int i, leap;
 
 	leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+
+	if (year < 1 || month < 1 || month > 12 || day < 1 || day > daytab[leap][month])
+	{
+		return -1;
+	}
 
 	for (i = 1; i < month; i++)
 	{
@@ -42,15 +41,30 @@ int day_of_year(int year, int month, int day)
 
 void month_day(int year, int yearday, int* pmonth, int* pday)
 {
-	if (year < 0 || yearday < 0 || yearday > 365)
+	if (year < 1 || yearday < 1)
 	{
-		printf("data error\n");
-		return -1;
+		*pmonth = -1;
+		*pday = -1;
+		return;
 	}
 
 	int i, leap;
 
 	leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+
+	if (leap == 1 && yearday > 366)
+	{
+		*pmonth = -1;
+		*pday = -1;
+		return;
+	}
+
+	if (leap == 0 && yearday > 365)
+	{
+		*pmonth = -1;
+		*pday = -1;
+		return;
+	}
 
 	for (i = 1; yearday > daytab[leap][i]; i++)
 	{
