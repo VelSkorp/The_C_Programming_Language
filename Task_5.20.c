@@ -91,7 +91,7 @@ void dirdcl(void)
 		prevtoken = YES;
 	}
 
-	while ((type = gettoken()) == PARENS || type == BRACKETS)
+	while ((type = gettoken()) == PARENS || type == BRACKETS || type == '(')
 	{
 		if (type == PARENS)
 		{
@@ -232,12 +232,14 @@ void dclspec(void)
 		}
 		else if (typespec() == YES)
 		{
-			strcat(temp, " %s", token);
+			strcat(temp, " ");
+			strcat(temp,  token);
 			gettoken();
 		}
 		else if (typequal() == YES)
 		{
-			strcat(temp, " %s", token);
+			strcat(temp, " ");
+			strcat(temp, token);
 			gettoken();
 		}
 		else
