@@ -39,7 +39,7 @@ main()
 		
 		if (tokentype != '\n')
 		{
-			printf("синтаксическая ошибка\n");
+			printf("syntax error\n");
 		}
 
 		printf("%s; %s %s\n", name, out, datatype);
@@ -90,13 +90,13 @@ void dirdcl(void)
 	{
 		if (type == PARENS)
 		{
-			strcat(out, " функц. возвр.");
+			strcat(out, " function returning");
 		}
 		else
 		{
-			strcat(out, " массив");
+			strcat(out, " array");
 			strcat(out, token);
-			strcat(out, " из");
+			strcat(out, " of");
 		}
 	}
 }
@@ -179,7 +179,11 @@ int getch(void)
 void ungetch(int с)
 {
 	if (bufp >= BUFSIZE)
-		printf("ungetch: слишком много символов\n");
+	{
+		printf("ungetch: too many characters\n");
+	}
 	else
+	{
 		buf[bufp++] = с;
+	}
 }
