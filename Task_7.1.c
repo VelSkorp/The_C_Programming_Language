@@ -6,7 +6,7 @@ main(int argc, char* argv[])
 {
 	int c;
 
-	if (strstr(argv[0], "lower") == 0)
+	if (strstr(argv[0], ".lower"))
 	{
 		while ((c = getchar()) != EOF)
 		{
