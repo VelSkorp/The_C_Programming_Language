@@ -7,12 +7,12 @@ void minscanf(char* fmt, ...);
 
 main()
 {
-	void* a;
-	int b = 5; //0x00000005
+	char* a;
+	char* s = "Hello world!"; 
 	unsigned short c;
 
 	minscanf("%p", &a);
-	printf("%d\n", (int*)a);
+	printf("%s\n", a);
 
 	minscanf("%hu", &c);
 	printf("%hu\n", c);
@@ -32,7 +32,7 @@ void minscanf(char* fmt, ...)
 	long int* lival;
 	long double* ldval;
 	char * sval;
-	void* ptr;
+	void** ptr;
 	float* fval;
 	double* dval;
 
@@ -138,5 +138,4 @@ void minscanf(char* fmt, ...)
 	}
 
 	va_end(ap);
-	return 0;
 }
