@@ -6,9 +6,9 @@
 
 #define MAX_PATH 1024
 
-//#ifndef DIRSIZ
-//#define DIRSIZ 14
-//#endif 
+#ifndef DIRSIZ
+#define DIRSIZ 14
+#endif 
 
 void fsize(char*);
 void dirwalk(char*, void(*fcn)(char*));
