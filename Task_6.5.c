@@ -147,6 +147,8 @@ struct nlist* undef(char* name)
 		else
 		{
 			hashtab[hash(name)] = NULL;
+			free((void*)np->defn);
+			free((void*)np->name);
 			free((void*)np);
 		}
 	}
